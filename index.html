@@ -1533,9 +1533,9 @@
                     {name:'预测判断', text:'P ≥ 阈值 → 滑坡 | P < 阈值 → 安全'}
                 ],
                 features: [
-                    {label:'降雨量 (x₁) <span class="unit">mm</span>', hint:'当前监测点降雨量'},
-                    {label:'降雨强度 (x₂) <span class="unit">mm/h</span>', hint:'当前实时降雨强度'},
-                    {label:'土壤饱和度 (x₃) <span class="unit">-</span>', hint:'0-1之间，值越大含水越多'}
+                    {label:'降雨量 (x₁) <span class="unit">mm</span>', hint:'当前监测点降雨量', placeholder:'请输入降雨量'},
+                    {label:'降雨强度 (x₂) <span class="unit">mm/h</span>', hint:'当前实时降雨强度', placeholder:'请输入降雨强度'},
+                    {label:'土壤饱和度 (x₃) <span class="unit">-</span>', hint:'0-1之间，值越大含水越多', placeholder:'请输入土壤饱和度'}
                 ],
                 betaLabels: ['降雨量权重','降雨强度权重','饱和度权重'],
                 betaDefaults: [-0.1562, 2.4905, 3.5051, 4.6272],
@@ -1560,9 +1560,9 @@
                     {name:'预测判断', text:'P ≥ 阈值 → 需要住院 | P < 阈值 → 不需住院'}
                 ],
                 features: [
-                    {label:'体温 (x₁) <span class="unit">°C</span>', hint:'小王当前体温 (β₀)'},
-                    {label:'咳嗽程度 (x₂) <span class="unit">0-10</span>', hint:'小王咳嗽严重程度 (β₁)'},
-                    {label:'血氧浓度 (x₃) <span class="unit">%</span>', hint:'小王血氧饱和度 (β₂)'}
+                    {label:'体温 (x₁) <span class="unit">°C</span>', hint:'小王当前体温 (β₀)', placeholder:'请输入体温'},
+                    {label:'咳嗽程度 (x₂) <span class="unit">0-10</span>', hint:'小王咳嗽严重程度 (β₁)', placeholder:'请输入咳嗽程度'},
+                    {label:'血氧浓度 (x₃) <span class="unit">%</span>', hint:'小王血氧饱和度 (β₂)', placeholder:'请输入血氧浓度'}
                 ],
                 betaLabels: ['体温权重(β₀)','咳嗽权重(β₁)','血氧权重(β₂)'],
                 betaDefaults: [-0.1274, 0.6505, 1.1401, -1.6316],
@@ -1605,6 +1605,7 @@
             for (let i = 0; i < 3; i++) {
                 document.getElementById('labelX'+(i+1)).innerHTML = c.features[i].label;
                 document.getElementById('hintX'+(i+1)).textContent = c.features[i].hint;
+                document.getElementById('x'+(i+1)).placeholder = c.features[i].placeholder;
             }
             document.getElementById('spanBeta1').textContent = c.betaLabels[0] + '权重';
             document.getElementById('spanBeta2').textContent = c.betaLabels[1] + '权重';
